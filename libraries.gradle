@@ -1,0 +1,20 @@
+ext {
+
+    targetSdkVersion = 22
+    compileSdkVersion = 22
+    minSdkVersion = 16
+    buildToolsVersion = '22.0.1'
+    appCompatVersion = '22.2.0'
+    supportVersion = '22.2.0'
+    butterknifeVersion = '6.1.0'
+
+    //Coding
+    puppyCrawlVersion = "6.5"
+
+    libraries = [
+            appCompat : "com.android.support:appcompat-v7:${appCompatVersion}",
+            supportV4 : "com.android.support:support-v4:${supportVersion}",
+            butterknife          : "com.jakewharton:butterknife:${butterknifeVersion}",
+            puppyCrawlCheckStyle   : "com.puppycrawl.tools:checkstyle:${puppyCrawlVersion}"
+    ]
+}

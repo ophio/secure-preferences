@@ -1,8 +1,42 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/theme_primary</item>
+        <item name="colorPrimaryDark">@color/theme_primary_dark</item>
+        <item name="colorAccent">@color/theme_accent</item>
+    </style>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="AppTheme" parent="BaseTheme">
         <!-- Customize your theme here. -->
+    </style>
+
+    <style name="HeaderBar">
+        <item name="android:background">?colorPrimary</item>
+    </style>
+
+    <style name="ActionBarStyle">
+        <item name="contentInsetStart">@dimen/toolbar_contentInsetStart</item>
+        <item name="titleTextAppearance">@style/ToolBarTextStyle</item>
+        <item name="android:minHeight">?actionBarSize</item>
+    </style>
+
+    <style name="ToolBarTextStyle" parent="@android:style/TextAppearance.Small">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/toolbar_text_size</item>
+        <item name="android:textColor">@color/theme_text_icons</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="ActionBarThemeOverlay.Light" parent="@style/ThemeOverlay.AppCompat.Light">
+        <item name="titleTextAppearance">@style/ToolBarTextStyle</item>
+
+    </style>
+
+    <style name="ActionBarThemeOverlay.Dark.ActionBar" parent="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="titleTextAppearance">@style/ToolBarTextStyle</item>
     </style>
 
 </resources>

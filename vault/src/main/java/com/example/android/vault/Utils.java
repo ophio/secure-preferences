@@ -28,6 +28,11 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 public class Utils {
+
+    private Utils() {
+        //utility class
+    }
+
     public static void closeQuietly(Closeable closable) {
         if (closable != null) {
             try {

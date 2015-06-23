@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="BaseTheme">
+        <item name="android:navigationBarColor">@color/theme_primary_text</item>
+        <item name="android:statusBarColor">?colorPrimaryDark</item>
+
+        <item name="android:windowContentTransitions">true</item>
+        <item name="android:windowEnterTransition">@android:transition/explode</item>
+        <item name="android:windowExitTransition">@android:transition/explode</item>
+        <item name="android:windowAllowEnterTransitionOverlap">true</item>
+    </style>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="keyline_1">16dp</dimen>
+    <dimen name="keyline_1_minus_8dp">8dp</dimen>
+    <dimen name="keyline_2">72dp</dimen>
+    <dimen name="keyline_2_minus_16dp">56dp</dimen>
+
+    <!-- headerbar -->
+    <dimen name="headerbar_elevation">4dp</dimen>
+    <dimen name="toolbar_contentInsetStart">72dp</dimen>
+    <dimen name="toolbar_text_size">16sp</dimen>
+
+
+    <dimen name="space_xlow">1dp</dimen>
+    <dimen name="space_low">4dp</dimen>
+    <dimen name="space">8dp</dimen>
+    <dimen name="space_medium">16dp</dimen>
+    <dimen name="space_large">24dp</dimen>
+    <dimen name="space_xlarge">40dp</dimen>
+    <dimen name="login_heading_text_size">16sp</dimen>
+
+</resources>
