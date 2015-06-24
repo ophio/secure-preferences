@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/headerbar"
+    style="@style/HeaderBar"
+    android:background="?colorPrimary"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_actionbar"
+        style="@style/ActionBarStyle"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:background="@null"
+        android:titleTextAppearance="@style/ToolBarTextStyle"
+        android:theme="@style/ActionBarThemeOverlay.Dark.ActionBar">
+
+    </android.support.v7.widget.Toolbar>
+
+</FrameLayout>

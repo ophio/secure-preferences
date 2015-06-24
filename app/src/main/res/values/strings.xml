@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Keystore-preferences</string>
+    <string name="title_activity_main">Home</string>
+    <string name="Username">Username</string>
+    <string name="login">Login</string>
+    <string name="EnterPassword">Password</string>
+    <string name="logged_in">You are logged in</string>
+    <string name="logout">Logout</string>
 </resources>
