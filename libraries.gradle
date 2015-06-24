@@ -9,7 +9,9 @@ ext {
     butterknifeVersion = '6.1.0'
     daggerVersion = '2.0'
     javaXAnnotationVersion = '1.0'
-
+    mockitoVersion = '1.9.5'
+    jUnitVersion = '4.11'
+    hamcrestVersion = '1.3'
 
     //Coding
     puppyCrawlVersion = "6.5"
@@ -22,5 +24,12 @@ ext {
             puppyCrawlCheckStyle   : "com.puppycrawl.tools:checkstyle:${puppyCrawlVersion}",
             dagger2Compiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
             dagger2 : "com.google.dagger:dagger:${daggerVersion}"
+    ]
+
+    testLibraries = [
+            mockito : "org.mockito:mockito-core:${mockitoVersion}",
+            jUnit : "junit:junit:${jUnitVersion}",
+            hamcrestLibrary : "org.hamcrest:hamcrest-library:${hamcrestVersion}",
+            hamcrestCore : "org.hamcrest:hamcrest-core:${hamcrestVersion}"
     ]
 }
