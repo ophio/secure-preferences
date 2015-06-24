@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
 
 android {
     compileSdkVersion 22
@@ -6,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "in.co.ophio.keystore_preferences"
-        minSdkVersion 16
+        minSdkVersion 18
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
@@ -24,9 +25,13 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile project(':library')
+    provided rootProject.ext.libraries.javaxAnnotiation
     compile rootProject.ext.libraries.appCompat
     compile rootProject.ext.libraries.supportV4
     compile rootProject.ext.libraries.butterknife
+    apt rootProject.ext.libraries.dagger2Compiler
+    compile rootProject.ext.libraries.dagger2
 }
 
 apply from: rootProject.file('checkstyle.gradle')

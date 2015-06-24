@@ -5,25 +5,45 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import javax.inject.Inject;
+
+import in.co.ophio.keystore_preferences.KeystoreApplication;
 import in.co.ophio.keystore_preferences.R;
+import in.co.ophio.keystore_preferences.util.AccountUtils;
 
 /**
  * @author ragdroid (garima.my.way@gmail.com)
  */
-public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentListener {
+public class MainActivity extends AppCompatActivity implements MainFragment.MainFragmentListener, LoggedInFragment.LoggedInFragmentListener {
 
     private Toolbar actionBarToolbar;
+    @Inject AccountUtils accountUtils;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        KeystoreApplication.getAppContext().getAppComponent().inject(this);
         setActionBarToolbar();
         if (savedInstanceState == null) {
-            getFragmentManager()
-                    .beginTransaction().replace(R.id.login_container,
-                    MainFragment.getInstance()).commit();
+            if (accountUtils.isLoggedIn()) {
+                openLoggedInFragment();
+            } else {
+                openLoginFragment();
+            }
         }
+    }
+
+    private void openLoginFragment() {
+        getFragmentManager()
+                .beginTransaction().replace(R.id.login_container,
+                MainFragment.getInstance()).commit();
+    }
+
+    private void openLoggedInFragment() {
+        getFragmentManager()
+                .beginTransaction().replace(R.id.login_container,
+                LoggedInFragment.getInstance()).commit();
     }
 
     protected Toolbar setActionBarToolbar() {
@@ -44,4 +64,13 @@ public class MainActivity extends AppCompatActivity implements MainFragment.Main
         return actionBarToolbar;
     }
 
+    @Override
+    public void onLogoutClicked() {
+        openLoginFragment();
+    }
+
+    @Override
+    public void onLoginClicked() {
+        openLoggedInFragment();
+    }
 }

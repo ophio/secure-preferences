@@ -7,14 +7,20 @@ ext {
     appCompatVersion = '22.2.0'
     supportVersion = '22.2.0'
     butterknifeVersion = '6.1.0'
+    daggerVersion = '2.0'
+    javaXAnnotationVersion = '1.0'
+
 
     //Coding
     puppyCrawlVersion = "6.5"
 
     libraries = [
+            javaxAnnotiation: "javax.annotation:jsr250-api:${javaXAnnotationVersion}",
             appCompat : "com.android.support:appcompat-v7:${appCompatVersion}",
             supportV4 : "com.android.support:support-v4:${supportVersion}",
             butterknife          : "com.jakewharton:butterknife:${butterknifeVersion}",
-            puppyCrawlCheckStyle   : "com.puppycrawl.tools:checkstyle:${puppyCrawlVersion}"
+            puppyCrawlCheckStyle   : "com.puppycrawl.tools:checkstyle:${puppyCrawlVersion}",
+            dagger2Compiler : "com.google.dagger:dagger-compiler:${daggerVersion}",
+            dagger2 : "com.google.dagger:dagger:${daggerVersion}"
     ]
 }

@@ -4,4 +4,6 @@
     <string name="Username">Username</string>
     <string name="login">Login</string>
     <string name="EnterPassword">Password</string>
+    <string name="logged_in">You are logged in</string>
+    <string name="logout">Logout</string>
 </resources>
