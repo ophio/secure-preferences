@@ -20,7 +20,7 @@ import javax.crypto.spec.SecretKeySpec;
  */
 public class KeyGenerator {
 
-    public static final String TAG = "SecretKeyUtils";
+    public static final String TAG = "KeyGenerator";
     private static final int DATA_KEY_LENGTH = 32;
 
     private Application application;
@@ -30,12 +30,9 @@ public class KeyGenerator {
      * attacks if the device is compromised.
      */
     private boolean isHardwareBacked;
+
     /** File where wrapped symmetric key is stored. */
     private File keyFile;
-
-    public static KeyGenerator get(Application application, String fileName) {
-        return new KeyGenerator(application, fileName);
-    }
 
     public KeyGenerator(Application application, String filename) {
         this.application = application;
@@ -51,6 +48,10 @@ public class KeyGenerator {
         } catch (GeneralSecurityException e) {
             throw new IllegalStateException(e);
         }
+    }
+
+    public static KeyGenerator get(Application application, String fileName) {
+        return new KeyGenerator(application, fileName);
     }
 
     public String loadOrGenerateKeys()

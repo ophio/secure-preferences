@@ -19,12 +19,22 @@ android {
     lintOptions {
         abortOnError false
     }
+    packagingOptions {
+        exclude 'LICENSE.txt'
+    }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile libraries.appCompat
     compile project(':vault')
+
+    testCompile testLibraries.mockito
+    testCompile testLibraries.jUnit
+
+    androidTestCompile testLibraries.mockito
+    androidTestCompile testLibraries.hamcrestLibrary
+    androidTestCompile testLibraries.hamcrestCore
 }
 
 apply from: rootProject.file('checkstyle_android_library.gradle')
