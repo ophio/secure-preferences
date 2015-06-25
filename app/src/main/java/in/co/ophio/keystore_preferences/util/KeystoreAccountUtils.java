@@ -1,7 +1,9 @@
 package in.co.ophio.keystore_preferences.util;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
@@ -25,6 +27,7 @@ public class KeystoreAccountUtils implements AccountUtils {
     private final SharedPreferences sharedPreferences;
 
     @Inject KeyGenerator keyGenerator;
+    @Inject Context context;
 
     public KeystoreAccountUtils() {
         KeystoreApplication.getAppContext().getAppComponent().inject(this);
@@ -48,8 +51,10 @@ public class KeystoreAccountUtils implements AccountUtils {
         try {
             sekrt = keyGenerator.loadOrGenerateKeys();
         } catch (GeneralSecurityException e) {
+            Toast.makeText(context, "can't create key", Toast.LENGTH_SHORT).show();
             throw new RuntimeException("can't create  key");
         } catch (IOException e) {
+            Toast.makeText(context, "can't create key", Toast.LENGTH_SHORT).show();
             throw new RuntimeException("can't create key");
         }
         return sekrt;
