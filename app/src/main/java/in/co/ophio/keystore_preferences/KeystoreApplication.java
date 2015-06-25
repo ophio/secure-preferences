@@ -28,7 +28,7 @@ public class KeystoreApplication extends Application {
         appContext = (KeystoreApplication) getApplicationContext();
         appComponent = DaggerAppComponent
                 .builder()
-                .appModule(new AppModule(getApplicationContext()))
+                .appModule(new AppModule(this))
                 .build();
 
     }
