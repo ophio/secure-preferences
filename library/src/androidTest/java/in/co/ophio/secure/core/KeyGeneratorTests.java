@@ -19,10 +19,10 @@ public class KeyGeneratorTests extends AndroidTestCase {
 
 
     public void testKeyGenerator() throws GeneralSecurityException, IOException {
-        String keyFirst = KeyGenerator.get((Application) getContext().getApplicationContext(), "testname")
+        String keyFirst = KeyStoreKeyGenerator.get((Application) getContext().getApplicationContext(), "testname")
                 .loadOrGenerateKeys();
 
-        String keySecond = KeyGenerator.get((Application) getContext().getApplicationContext(), "testname")
+        String keySecond = KeyStoreKeyGenerator.get((Application) getContext().getApplicationContext(), "testname")
                 .loadOrGenerateKeys();
 
         // check if same key is returned every time
@@ -30,10 +30,10 @@ public class KeyGeneratorTests extends AndroidTestCase {
     }
 
     public void testKeyIsDifferntForDifferentFile() throws GeneralSecurityException, IOException {
-        String keyFirst = KeyGenerator.get((Application) getContext().getApplicationContext(), "testnamea")
+        String keyFirst = KeyStoreKeyGenerator.get((Application) getContext().getApplicationContext(), "testnamea")
                 .loadOrGenerateKeys();
 
-        String keySecond = KeyGenerator.get((Application) getContext().getApplicationContext(), "testname")
+        String keySecond = KeyStoreKeyGenerator.get((Application) getContext().getApplicationContext(), "testname")
                 .loadOrGenerateKeys();
 
         // check if same key is returned every time

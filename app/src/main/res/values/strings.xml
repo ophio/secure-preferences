@@ -6,4 +6,6 @@
     <string name="EnterPassword">Password</string>
     <string name="logged_in">You are logged in</string>
     <string name="logout">Logout</string>
+    <string name="recommendation">It is recommended to not save sensitive info on device
+    </string>
 </resources>
