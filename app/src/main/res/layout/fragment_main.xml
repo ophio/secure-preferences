@@ -13,7 +13,6 @@
         android:orientation="vertical"
         android:paddingLeft="@dimen/keyline_1"
         android:paddingRight="@dimen/keyline_1">
-
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,6 +21,13 @@
             android:textSize="@dimen/login_heading_text_size"
             android:textStyle="bold"
             android:text="@string/login"
+            />
+        <TextView
+            android:id="@+id/hardware_backed"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/space"
             />
 
         <EditText

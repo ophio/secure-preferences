@@ -9,7 +9,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 import javax.inject.Inject;
 
@@ -20,6 +23,7 @@ import in.co.ophio.keystore_preferences.R;
 import butterknife.ButterKnife;
 import in.co.ophio.keystore_preferences.entity.UserCredential;
 import in.co.ophio.keystore_preferences.util.AccountUtils;
+import in.co.ophio.secure.core.KeyGenerator;
 
 /**
  * @author ragdroid (garima.my.way@gmail.com)
@@ -27,8 +31,10 @@ import in.co.ophio.keystore_preferences.util.AccountUtils;
 public class MainFragment extends Fragment {
 
     @Inject AccountUtils accountUtils;
+    @Inject KeyGenerator keyGenerator;
     @InjectView(R.id.user_name) EditText userName;
     @InjectView(R.id.password) EditText password;
+    @InjectView(R.id.hardware_backed) TextView hardwareBack;
     private MainFragmentListener fragmentListener;
 
     public static MainFragment getInstance() {
@@ -59,7 +65,16 @@ public class MainFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_main, container, false);
         ButterKnife.inject(this, view);
         KeystoreApplication.getAppContext().getAppComponent().inject(this);
+        setUpView();
         return view;
+    }
+
+    private void setUpView() {
+        if (keyGenerator.isHardwareBacked()) {
+            hardwareBack.setText("Keystore is hardware-backed.");
+        } else {
+            hardwareBack.setText("This device has software keystore which is more vulnerable to offline attacks if the device is compromised.");
+        }
     }
 
     @OnClick(R.id.login_button)

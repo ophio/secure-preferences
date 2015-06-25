@@ -17,6 +17,6 @@
     <dimen name="space_medium">16dp</dimen>
     <dimen name="space_large">24dp</dimen>
     <dimen name="space_xlarge">40dp</dimen>
-    <dimen name="login_heading_text_size">16sp</dimen>
+    <dimen name="login_heading_text_size">18sp</dimen>
 
 </resources>
