@@ -1,7 +1,7 @@
 For securing your `SharedPreferences` information.
 
 ## Why Secure `SharedPreferences`?
-`SharedPreferences` are accessible to anybody if your device is compromised. It is recommended to obscure the information saved in `SharedPreferences` before you store them (See [`ObscuredSharedPreferences`] (library/src/main/java/in/co/ophio/secure/core/ObscuredSharedPreferences.java)). Still the `key` that is used to obscure the information can be recovered by a simple decompilation procedure if it is hard-coded in the app. 
+`SharedPreferences` are accessible to anybody if your device is compromised. It is recommended to obscure the information saved in `SharedPreferences` before you store them. One of the solutions is to encrypt the informaiton (See [`ObscuredSharedPreferences`] (library/src/main/java/in/co/ophio/secure/core/ObscuredSharedPreferences.java)). Still the `key` that is used for encryption can be recovered by a simple decompilation procedure if it is hard-coded in the app. 
 
 ## Solution
 In addition to obscuring the information stored in `SharedPreferences,`  store your key in the [`Android Keystore System`] (https://developer.android.com/training/articles/keystore.html#UsingAndroidKeyStore) by using our [`KeyGenerator`](library/src/main/java/in/co/ophio/secure/core/KeyStoreKeyGenerator.java)
@@ -11,7 +11,24 @@ The Android Keystore system lets you store private keys in a container to make i
 
 The Keystore system is used by the [`KeyChain`](https://developer.android.com/reference/android/security/KeyChain.html) API as well as the Android Keystore provider feature that was introduced in Android 4.3 (API level 18).
 
-#Usage
+# Download
+Using Gradle:
+
+```
+compile "in.co.ophio:keystore-preferences:0.1.2"
+```
+
+Using Maven:
+
+```
+<dependency>
+  <groupId>in.co.ophio</groupId>
+  <artifactId>secure-preferences</artifactId>
+  <version>0.1.2</version>
+</dependency>
+```
+
+# Usage
 
 * Generate a key using [`KeyGenerator`](library/src/main/java/in/co/ophio/secure/core/KeyStoreKeyGenerator.java):
 
@@ -33,7 +50,7 @@ SharedPreferences sharedPreferences = new ObscuredPreferencesBuilder()
                 .createSharedPrefs();
 ```
 
-* For more information on usage see the sample application [implementation](app/src/main/java/in/co/ophio/keystore_preferences/util/KeystoreAccountUtils.java):
+* For more information on usage see the sample application [implementation](sample/src/main/java/in/co/ophio/secure/sample/util/KeystoreAccountUtils.java):
 * For more information on library see the [library page](library/).
 
 
