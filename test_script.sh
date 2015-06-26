@@ -1,1 +1,1 @@
-./gradlew clean check test
+./gradlew clean check connectedAndroidTest -PpreDexEnable=false
