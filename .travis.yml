@@ -1,0 +1,22 @@
+language: android
+jdk: oraclejdk7
+
+android:
+  components:
+    - build-tools-22.0.1
+    - android-22
+    - extra
+
+install:
+   - TERM=dumb
+
+script:
+    - ./test_script.sh
+    
+licences:
+    - /android-sdk-license-[0-9a-f]{8}/
+cache:
+    directories:
+    - /home/travis/.gradle/caches/
+    - /home/travis/.gradle/wrapper/dists/gradle-2.4-all/
+    - /home/travis/.m2/repository/

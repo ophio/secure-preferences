@@ -1,4 +1,6 @@
-For securing your `SharedPreferences` information.
+[![Build Status](https://travis-ci.org/ophio/secure-preferences.svg?branch=develop)](https://travis-ci.org/ophio/secure-preferences)
+
+For securing your `SharedPreferences` information. 
 
 ## Why Secure `SharedPreferences`?
 `SharedPreferences` are accessible to anybody if your device is compromised. It is recommended to obscure the information saved in `SharedPreferences` before you store them. One of the solutions is to encrypt the informaiton (See [`ObscuredSharedPreferences`] (library/src/main/java/in/co/ophio/secure/core/ObscuredSharedPreferences.java)). Still the `key` that is used for encryption can be recovered by a simple decompilation procedure if it is hard-coded in the app. 
