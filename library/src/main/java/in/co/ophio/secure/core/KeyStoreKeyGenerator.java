@@ -4,8 +4,7 @@ import android.app.Application;
 import android.security.KeyChain;
 import android.util.Base64;
 
-import com.example.android.vault.SecretKeyWrapper;
-import com.example.android.vault.Utils;
+
 
 import java.io.File;
 import java.io.IOException;
@@ -14,6 +13,9 @@ import java.security.SecureRandom;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+
+import in.co.ophio.secure.vault.SecretKeyWrapper;
+import in.co.ophio.secure.vault.Utils;
 
 /**
  * @author Gaurav Vashisth (vashisthg@gmail.com)
@@ -54,6 +56,10 @@ public class KeyStoreKeyGenerator implements KeyGenerator {
         return new KeyStoreKeyGenerator(application, fileName);
     }
 
+    /**
+     * If key is already present then returns it otherwise generates a random key and returns it
+     * @return key
+     */
     @Override
     public String loadOrGenerateKeys()
             throws GeneralSecurityException, IOException {
@@ -75,6 +81,12 @@ public class KeyStoreKeyGenerator implements KeyGenerator {
                 .DEFAULT);
     }
 
+    /**
+     * Indicates whether the {@link SecretKeyWrapper} public/private key is
+     * hardware-backed. A software keystore is more vulnerable to offline
+     * attacks if the device is compromised.
+     * @return boolean to know wheter key is hardware backed or not
+     */
     @Override
     public boolean isHardwareBacked() {
         return isHardwareBacked;

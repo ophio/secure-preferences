@@ -8,12 +8,15 @@ import java.security.GeneralSecurityException;
  */
 public interface KeyGenerator {
 
+    /**
+     * @return String key to be used in encryption algorithms
+     * @throws GeneralSecurityException In case of Security Related exceptions
+     * @throws IOException If could unable to read/write key
+     */
     String loadOrGenerateKeys() throws GeneralSecurityException, IOException;
 
     /**
-     * Flag indicating that the {@link com.example.android.vault.SecretKeyWrapper} public/private key is
-     * hardware-backed. A software keystore is more vulnerable to offline
-     * attacks if the device is compromised.
+     * @return boolean to know whether key is hardware backed or not
      */
     boolean isHardwareBacked();
 
