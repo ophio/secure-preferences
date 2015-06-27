@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/ophio/secure-preferences.svg?branch=develop)](https://travis-ci.org/ophio/secure-preferences)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-secure--preferences-green.svg)](https://android-arsenal.com/details/1/2051)
 
 For securing your `SharedPreferences` information. 
 
