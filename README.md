@@ -7,7 +7,7 @@ For securing your `SharedPreferences` information.
 `SharedPreferences` are accessible to anybody if your device is compromised. It is recommended to obscure the information saved in `SharedPreferences` before you store them. One of the solutions is to encrypt the informaiton (See [`ObscuredSharedPreferences`] (library/src/main/java/in/co/ophio/secure/core/ObscuredSharedPreferences.java)). Still the `key` that is used for encryption can be recovered by a simple decompilation procedure if it is hard-coded in the app. 
 
 ## Solution
-In addition to obscuring the information stored in `SharedPreferences,`  store your key in the [`Android Keystore System`] (https://developer.android.com/training/articles/keystore.html#UsingAndroidKeyStore) by using our [`KeyGenerator`](library/src/main/java/in/co/ophio/secure/core/KeyStoreKeyGenerator.java)
+In addition to encrypting the information stored in `SharedPreferences,`  store your encryption key in the [`Android Keystore System`] (https://developer.android.com/training/articles/keystore.html#UsingAndroidKeyStore) by using our [`KeyGenerator`](library/src/main/java/in/co/ophio/secure/core/KeyStoreKeyGenerator.java)
 
 ## Android Keystore System
 The Android Keystore system lets you store private keys in a container to make it more difficult to extract from the device. Once keys are in the keystore, they can be used for cryptographic operations with the private key material remaining non-exportable.
