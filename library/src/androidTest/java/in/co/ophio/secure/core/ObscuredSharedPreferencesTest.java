@@ -4,6 +4,7 @@ import android.content.SharedPreferences;
 import android.test.AndroidTestCase;
 
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -22,6 +23,9 @@ public class ObscuredSharedPreferencesTest extends AndroidTestCase {
     public static final String KEY_LONG = "KEY_LONG";
     public static final String KEY_STRINGSET = "KEY_STRINGSET";
     public static final String KEY_STRING = "KEY_STRING";
+    private static final String KEY_GETALL_INT = "KEY_GETALL_INT";
+    private static final String KEY_GETALL_STRING = "KEY_GETALL_STRING";
+    private static final String KEY_GETALL_LONG = "KEY_GETALL_LONG";
 
     private SharedPreferences sharedPreferences;
     private ObscuredSharedPreferences obscuredSharedPreferences;
@@ -62,6 +66,17 @@ public class ObscuredSharedPreferencesTest extends AndroidTestCase {
     public void testPutLong() throws Exception {
         obscuredSharedPreferences.edit().putLong(KEY_LONG, 12343422l).commit();
         assertThat(obscuredSharedPreferences.getLong(KEY_LONG, 0l), equalTo(12343422l));
+    }
+
+    public void testGetAll() {
+        obscuredSharedPreferences.edit().putInt(KEY_GETALL_INT, 1).commit();
+        obscuredSharedPreferences.edit().putString(KEY_GETALL_STRING, "One").commit();
+        obscuredSharedPreferences.edit().putLong(KEY_GETALL_LONG, 1234L).commit();
+        Map<String, String> all = obscuredSharedPreferences.getAll();
+        assertEquals(all.size(), 3);
+        assertEquals(all.get(KEY_GETALL_INT), "1");
+        assertEquals(all.get(KEY_GETALL_STRING), "One");
+        assertEquals(all.get(KEY_GETALL_LONG), "1234");
     }
 
     public void testPutStringSet() throws Exception {

@@ -42,7 +42,7 @@ public class KeystoreAccountUtils implements AccountUtils {
     }
 
     /**
-     * //TODO use getKey to get an encrypted Key for obscuring preferences
+     * use getKey to get an encrypted Key for obscuring preferences
      *
      * @return
      */
