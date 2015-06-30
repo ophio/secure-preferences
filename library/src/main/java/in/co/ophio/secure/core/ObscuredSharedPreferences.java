@@ -11,6 +11,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -98,9 +99,31 @@ public class ObscuredSharedPreferences implements SharedPreferences {
         return new Editor();
     }
 
+    /**
+     * returns a map of all the unencrypted key,value pairs
+     *
+     * @return
+     */
     @Override
-    public Map<String, ?> getAll() {
-        throw new UnsupportedOperationException(); // left as an exercise to the reader
+    public Map<String, String> getAll() {
+        Map<String, ?> all = delegate.getAll();
+        Set<String> keys = all.keySet();
+        HashMap<String, String> unencryptedMap = new HashMap<>(keys.size());
+        for (String key : keys) {
+            String decryptedKey = decryptKey(key);
+            Object value = all.get(key);
+            if (value != null) {
+                unencryptedMap.put(decryptedKey, decrypt(value.toString()));
+            }
+        }
+        return unencryptedMap;
+    }
+
+    private String decryptKey(String key) {
+        if (encryptKeys) {
+            return decrypt(key);
+        }
+        return key;
     }
 
     @Override

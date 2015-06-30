@@ -56,7 +56,22 @@ SharedPreferences sharedPreferences = new ObscuredPreferencesBuilder()
 * For more information on usage see the sample application [implementation](sample/src/main/java/in/co/ophio/secure/sample/util/KeystoreAccountUtils.java):
 * For more information on library see the [library page](library/).
 
+# Contributing
 
+Before sending pull requests
+
+* Setup your `Preferences -> File And Code Templates -> Includes -> ` `File Header` as follows:
+
+```
+/**
+ * @author ${USER} (your email address)
+ */
+```
+*  Run the following command on your computer.
+
+```
+./gradlew clean check connectedAndroidTest
+```
 
 # License
 
