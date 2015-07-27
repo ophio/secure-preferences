@@ -14,6 +14,14 @@ The Android Keystore system lets you store private keys in a container to make i
 
 The Keystore system is used by the [`KeyChain`](https://developer.android.com/reference/android/security/KeyChain.html) API as well as the Android Keystore provider feature that was introduced in Android 4.3 (API level 18).
 
+### Disadvantages of using Android Keystore System
+If we create a key pair with the `KeyPairGenerator` and store it, then on changing the screen lock, our key pairs are deleted as the new Keystore is empty. See the following links for more details:
+
+- [Issue](https://code.google.com/p/android/issues/detail?id=61989)
+- [Explanation](http://doridori.github.io/android-security-the%20forgetful-keystore/#sthash.1opaRvjY.dpbs)
+
+There are some changes to the Keystore in the new Android M Developer Preview regarding this mentioned [here](https://developer.android.com/preview/behavior-changes.html#behavior-keystore).
+
 # Download
 Using Gradle:
 
