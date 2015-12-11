@@ -26,7 +26,7 @@ There are some changes to the Keystore in the new Android M Developer Preview re
 Using Gradle:
 
 ```
-compile "in.co.ophio:keystore-preferences:0.1.2"
+compile "in.co.ophio:secure-preferences:0.1.2"
 ```
 
 Using Maven:
