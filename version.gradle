@@ -1,7 +1,7 @@
 ext {
     def versionMajor = 0
     def versionMinor = 1
-    def versionPatch = 2
+    def versionPatch = 3
     def versionBuild = 0
 
     libraryVersionCode = versionMajor * 10000 + versionMinor * 1000 + versionPatch * 100 + versionBuild
