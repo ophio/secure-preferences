@@ -44,7 +44,7 @@ Using Maven:
 * Generate a key using [`KeyGenerator`](library/src/main/java/in/co/ophio/secure/core/KeyStoreKeyGenerator.java):
 
 ```
-	String key = KeyGenerator.get(KeystoreApplication.getAppContext(),
+	String key = KeyStoreKeyGenerator.get(getApplication(),
 					KeystoreApplication.getAppContext().getPackageName())
 						.loadOrGenerateKeys();
 ```
