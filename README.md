@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/ophio/secure-preferences.svg?branch=develop)](https://travis-ci.org/ophio/secure-preferences)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-secure--preferences-green.svg)](https://android-arsenal.com/details/1/2051)
 
-For securing your `SharedPreferences` information. 
+For securing your `SharedPreferences` information.  
 
 ## Why Secure `SharedPreferences`?
 `SharedPreferences` are accessible to anybody if your device is compromised. It is recommended to obscure the information saved in `SharedPreferences` before you store them. One of the solutions is to encrypt the informaiton (See [`ObscuredSharedPreferences`] (library/src/main/java/in/co/ophio/secure/core/ObscuredSharedPreferences.java)). Still the `key` that is used for encryption can be recovered by a simple decompilation procedure if it is hard-coded in the app. 
@@ -98,3 +98,7 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 ```
+
+# NOTE
+
+The maintainer has very little time to work on it, so this is no longer actively maintained. Also note that the library has not been updated after Android version 23, so a few API's used in this library are now deprecated in new versions of Android and new security related changes are not available. 
