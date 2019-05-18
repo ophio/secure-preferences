@@ -41,14 +41,19 @@ public class KeyStoreKeyGenerator implements KeyGenerator {
         this.isHardwareBacked = KeyChain.isBoundKeyAlgorithm("RSA");
         this.keyFile = new File(application.getFilesDir(), filename);
 
-        try {
-            // Load secret key and ensure our root document is ready.
-            loadOrGenerateKeys();
+        //WORKAROUND for https://issuetracker.google.com/issues/37137351
 
-        } catch (IOException e) {
-            throw new IllegalStateException(e);
-        } catch (GeneralSecurityException e) {
-            throw new IllegalStateException(e);
+        for (int i = 0; i <= 2; i++) {
+            try {
+                // Load secret key and ensure our root document is ready.
+                loadOrGenerateKeys();
+
+            } catch (IOException | GeneralSecurityException e) {
+                keyFile.delete();
+                if (i >= 2) {
+                    throw new IllegalStateException("Failed to initialize KeyStoreKeyGenerator (failed to load security key)", e);   // fatal error
+                }
+            }
         }
     }
 
