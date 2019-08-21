@@ -283,13 +283,13 @@ public class ObscuredSharedPreferences implements SharedPreferences {
 
         @Override
         public Editor putString(String key, String value) {
-            delegate.putString(encryptKey(key), encrypt(value));
+            delegate.putString(encryptKey(key), value != null ? encrypt(value) : null);
             return this;
         }
 
         @Override
         public SharedPreferences.Editor putStringSet(String key, Set<String> values) {
-            delegate.putStringSet(encryptKey(key), encryptSet(values));
+            delegate.putStringSet(encryptKey(key), values != null ? encryptSet(values) : null);
             return this;
         }
 

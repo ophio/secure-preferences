@@ -2,6 +2,7 @@ package in.co.ophio.secure.core;
 
 import android.content.SharedPreferences;
 import android.test.AndroidTestCase;
+import org.mockito.internal.util.collections.Sets;
 
 import java.util.HashSet;
 import java.util.Map;
@@ -98,5 +99,19 @@ public class ObscuredSharedPreferencesTest extends AndroidTestCase {
 
         obscuredSharedPreferences.edit().remove(KEY_STRING);
         assertThat(obscuredSharedPreferences.contains(KEY_STRING), is(true));
+    }
+
+    public void testSetNulls() throws Exception {
+        obscuredSharedPreferences.edit().putString(KEY_STRING, "test").commit();
+        assertNotNull(obscuredSharedPreferences.getString(KEY_STRING, null));
+
+        obscuredSharedPreferences.edit().putString(KEY_STRING, null).commit();
+        assertNull(obscuredSharedPreferences.getString(KEY_STRING, null));
+
+        obscuredSharedPreferences.edit().putStringSet(KEY_STRINGSET, Sets.newSet("one", "two")).commit();
+        assertNotNull(obscuredSharedPreferences.getStringSet(KEY_STRINGSET, null));
+
+        obscuredSharedPreferences.edit().putStringSet(KEY_STRINGSET, null).commit();
+        assertNull(obscuredSharedPreferences.getStringSet(KEY_STRINGSET, null));
     }
 }
